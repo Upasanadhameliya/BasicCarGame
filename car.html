@@ -148,6 +148,7 @@
 
             function endGame(){
                 player.start = false;
+                clearInterval(player.timer);
                 startScreen.classList.remove('hide');
                 startScreen.innerHTML = "Game over <br> Your final socre is " + player.score
                 + " <br> press here to restart the game.";                
@@ -201,7 +202,10 @@
 
                 player.start = true;
                 player.score = 0;
+                player.speed = 5;
+
                 window.requestAnimationFrame(runGame);
+                player.timer = setInterval(increasePlayerSpeed, 5000);
 
                 for(x=0; x<5; x++)
                 {
@@ -229,6 +233,10 @@
                     enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
                     gameArea.appendChild(enemyCar);
                 }
+            }
+
+            function increasePlayerSpeed(){
+                player.speed += 1;
             }
         </script>
 
