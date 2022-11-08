@@ -167,24 +167,10 @@
                         enemyCar.scoreAdded = false;
                     }
 
-                    // if (((myCar.offsetTop-90) < enemyCar.offsetTop) && (enemyCar.scoreAdded == false)){
-                    //     enemyCar.scoreAdded = true;
-                    //     console.log("mycar " + (myCar.offsetTop - 90));
-                    //     console.log("enemycar " + enemyCar.offsetTop);
-                    //     player.score += 10;
-                    // }
-
                     if ((player.y < enemyCar.y) && (enemyCar.scoreAdded == false)){
                         enemyCar.scoreAdded = true;
-                        console.log("mycar " + (myCar.offsetTop - 90));
-                        console.log("enemycar " + enemyCar.offsetTop);
                         player.score += 10;
                     }
-
-                    // if (((myCar.offsetTop-90) > enemyCar.offsetTop) && (enemyCar.scoreAdded == true)){
-                    //     player.score -= 10;
-                    //     enemyCar.scoreAdded = false;
-                    // }
 
                     enemyCar.y += player.speed;
                     enemyCar.style.top = enemyCar.y + "px";
@@ -210,7 +196,6 @@
 
                     window.requestAnimationFrame(runGame);
 
-                    // player.score++;
                     score.innerText = "Score: " + player.score + "\nSpeed: " + player.speed;
                     
                 }   
