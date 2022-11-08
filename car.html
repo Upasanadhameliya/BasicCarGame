@@ -167,9 +167,18 @@
                         enemyCar.scoreAdded = false;
                     }
 
-                    if (((myCar.offsetTop-90) < enemyCar.offsetTop) && (enemyCar.scoreAdded == false)){
-                        player.score += 10;
+                    // if (((myCar.offsetTop-90) < enemyCar.offsetTop) && (enemyCar.scoreAdded == false)){
+                    //     enemyCar.scoreAdded = true;
+                    //     console.log("mycar " + (myCar.offsetTop - 90));
+                    //     console.log("enemycar " + enemyCar.offsetTop);
+                    //     player.score += 10;
+                    // }
+
+                    if ((player.y < enemyCar.y) && (enemyCar.scoreAdded == false)){
                         enemyCar.scoreAdded = true;
+                        console.log("mycar " + (myCar.offsetTop - 90));
+                        console.log("enemycar " + enemyCar.offsetTop);
+                        player.score += 10;
                     }
 
                     // if (((myCar.offsetTop-90) > enemyCar.offsetTop) && (enemyCar.scoreAdded == true)){
