@@ -164,7 +164,18 @@
                     if(enemyCar.y >= 750){
                         enemyCar.y = -300;
                         enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
+                        enemyCar.scoreAdded = false;
                     }
+
+                    if (((myCar.offsetTop-90) < enemyCar.offsetTop) && (enemyCar.scoreAdded == false)){
+                        player.score += 10;
+                        enemyCar.scoreAdded = true;
+                    }
+
+                    // if (((myCar.offsetTop-90) > enemyCar.offsetTop) && (enemyCar.scoreAdded == true)){
+                    //     player.score -= 10;
+                    //     enemyCar.scoreAdded = false;
+                    // }
 
                     enemyCar.y += player.speed;
                     enemyCar.style.top = enemyCar.y + "px";
@@ -190,7 +201,7 @@
 
                     window.requestAnimationFrame(runGame);
 
-                    player.score++;
+                    // player.score++;
                     score.innerText = "Score: " + player.score + "\nSpeed: " + player.speed;
                     
                 }   
@@ -231,6 +242,7 @@
                     enemyCar.y = ((x+1) * 350) * -1;
                     enemyCar.style.top = enemyCar.y + "px";
                     enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
+                    enemyCar.scoreAdded = false;
                     gameArea.appendChild(enemyCar);
                 }
             }
